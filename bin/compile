@@ -66,12 +66,12 @@ for PACKAGE in $(cat $BUILD_DIR/Aptfile); do
 done
 
 mkdir -p $BUILD_DIR/.apt
-mkdir -p $BUILD_DIR/.apt_done
+mkdir -p $BUILD_DIR/.apt.done
 
 for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
   topic "Installing $(basename $DEB)"
   dpkg -x $DEB $BUILD_DIR/.apt/
-  mv $DEB $BUILD_DIR/.apt_done/
+  mv $DEB $BUILD_DIR/.apt.done/
 done
 
 if [ -e "$BUILD_DIR/Aptfile2" ]; then
