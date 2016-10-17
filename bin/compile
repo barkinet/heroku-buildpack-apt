@@ -93,7 +93,7 @@ if [ -e "$BUILD_DIR/Aptfile2" ]; then
     for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
         topic "Installing $(basename $DEB)"
         dpkg -x $DEB $BUILD_DIR/.apt/
-        mv $DEB $BUILD_DIR/.apt_done/
+        mv $DEB $BUILD_DIR/.apt.done/
     done
 fi
 
